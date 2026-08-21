@@ -3,7 +3,9 @@
 function tienePropiedad(objeto, propiedad) {
   return objeto.hasOwnProperty(propiedad);
 }
- 
+
+const producto = { nombre: "Notebook", precio: 450000, disponible: true };
+
 console.log(tienePropiedad(producto, "precio"));
 console.log(tienePropiedad(producto, "color"));
  
