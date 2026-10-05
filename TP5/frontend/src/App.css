@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --tinta: #1c2333;
+  --tinta-suave: #2e3750;
+  --papel: #f6f4ee;
+  --papel-card: #ffffff;
+  --linea: #dedad0;
+  --ambar: #d98c2b;
+  --ambar-suave: #f3e2c6;
+  --verde: #3f7a5c;
+  --verde-suave: #dcefe4;
+  --rojo: #b64a3c;
+  --rojo-suave: #f6e1dd;
+  --azul: #3a5ca8;
+  --azul-suave: #e1e8f7;
+  --texto: #22273a;
+  --texto-suave: #5a5f72;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--texto);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  background-image:
+    linear-gradient(var(--linea) 1px, transparent 1px);
+  background-size: 100% 32px;
+}
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.app-header {
+  border-bottom: 3px solid var(--tinta);
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+}
+
+.app-header h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.app-header p {
+  margin: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .app-main { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: var(--papel-card);
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+}
+
+.panel-form {
+  padding: 24px;
+  position: sticky;
+  top: 24px;
+}
+
+.panel-list {
+  padding: 24px;
+}
+
+.panel-list-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.panel-list-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.contador {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* --- Formulario --- */
+
+.task-form h2 {
+  margin: 0 0 20px;
+  font-size: 1.15rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  text-transform: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 0.92rem;
+  padding: 9px 10px;
+  border: 1px solid var(--linea);
+  border-radius: 4px;
+  background: var(--papel);
+  color: var(--texto);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--ambar);
+  outline-offset: 1px;
+  border-color: var(--ambar);
+}
+
+textarea { resize: vertical; font-family: inherit; }
+
+.error {
+  font-size: 0.75rem;
+  color: var(--rojo);
+}
+
+.acciones-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.15s ease;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primario {
+  background: var(--tinta);
+  color: var(--papel);
+}
+.btn-primario:hover { filter: brightness(1.2); }
+
+.btn-secundario {
+  background: transparent;
+  border-color: var(--linea);
+  color: var(--texto);
+}
+.btn-secundario:hover { background: var(--papel); }
+
+.btn-exito {
+  background: var(--verde-suave);
+  color: var(--verde);
+  border-color: var(--verde);
+}
+.btn-exito:hover { filter: brightness(0.97); }
+
+.btn-peligro {
+  background: var(--rojo-suave);
+  color: var(--rojo);
+  border-color: var(--rojo);
+}
+.btn-peligro:hover { filter: brightness(0.97); }
+
+/* --- Listado --- */
+
+.estado-vacio {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  padding: 24px 0;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.task-card {
+  border: 1px solid var(--linea);
+  border-left: 4px solid var(--tinta);
+  border-radius: 4px;
+  padding: 16px 18px;
+  background: var(--papel-card);
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.task-id {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+.task-card-header h3 {
+  margin: 2px 0 2px;
+  font-size: 1.05rem;
+}
+
+.task-proyecto {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.badges {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.prioridad-baja { background: var(--azul-suave); color: var(--azul); }
+.prioridad-media { background: var(--ambar-suave); color: var(--ambar); }
+.prioridad-alta { background: #fbe4d2; color: #b5611c; }
+.prioridad-urgente { background: var(--rojo-suave); color: var(--rojo); }
+
+.estado-pendiente { background: #ece9e2; color: var(--texto-suave); }
+.estado-progreso { background: var(--azul-suave); color: var(--azul); }
+.estado-revision { background: var(--ambar-suave); color: var(--ambar); }
+.estado-bloqueada { background: var(--rojo-suave); color: var(--rojo); }
+.estado-finalizada { background: var(--verde-suave); color: var(--verde); }
+
+.task-descripcion {
+  font-size: 0.88rem;
+  color: var(--texto);
+  margin: 8px 0;
+}
+
+.task-detalles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+  padding: 12px 0;
+  border-top: 1px dashed var(--linea);
+  border-bottom: 1px dashed var(--linea);
+}
+
+.task-detalles dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+  margin-bottom: 2px;
+}
+
+.task-detalles dd {
+  margin: 0;
+  font-size: 0.85rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.task-precondicion {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  margin: 8px 0;
+}
+
+.task-card-footer {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* --- Toast --- */
+
+.toast {
+  padding: 11px 16px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+  border: 1px solid transparent;
+}
+
+.toast-exito {
+  background: var(--verde-suave);
+  color: var(--verde);
+  border-color: var(--verde);
+}
+
+.toast-error {
+  background: var(--rojo-suave);
+  color: var(--rojo);
+  border-color: var(--rojo);
+}
