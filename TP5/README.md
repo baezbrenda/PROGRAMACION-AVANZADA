@@ -1,4 +1,4 @@
-# TP01 — Gestor de Tareas de Proyectos de Software
+# TP5 — Gestor de Tareas de Proyectos de Software
 
 Aplicación full-stack que funciona como manejador de tareas de proyectos de software (tipo Jira simplificado).
 
@@ -12,7 +12,7 @@ Aplicación full-stack que funciona como manejador de tareas de proyectos de sof
 ## Estructura del proyecto
 
 ```
-tp01-task-manager/
+tp5-task-manager/
 ├── docker-compose.yml
 ├── backend/
 │   ├── Dockerfile
